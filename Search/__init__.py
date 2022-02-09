@@ -32,9 +32,10 @@ def artist_top_tracks(artist_id):
     return [track.name for track in sorted(result, key=lambda t: t.popularity, reverse=True)]
 
 
-def main():
-    print(artist_top_tracks('5BtHciL0e0zOP7prIHn3pP'))
-
-
-if __name__ == "__main__":
-    main()
+def track_in_album(album_id):
+    try:
+        album = Models.albums.get(album_id)
+        tracks = album.tracks_ids
+        return [Models.tracks.get(track).name for track in tracks]
+    except AttributeError:
+        raise AlbumNotFound
