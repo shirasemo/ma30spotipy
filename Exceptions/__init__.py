@@ -1,2 +1,6 @@
 class TrackAlreadyExists(Exception):
-    pass
+    """track id already exists"""
+
+
+class PlaylistAlreadyExists(Exception):
+    """playlist name already exists"""
