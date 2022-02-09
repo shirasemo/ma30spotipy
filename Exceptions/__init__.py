@@ -1,6 +1,14 @@
 class TrackAlreadyExists(Exception):
-    """track id already exists"""
+    pass
 
 
 class PlaylistAlreadyExists(Exception):
-    """playlist name already exists"""
+    pass
+
+
+class ArtistNotFound(Exception):
+    pass
+
+
+class AlbumNotFound(Exception):
+    pass
