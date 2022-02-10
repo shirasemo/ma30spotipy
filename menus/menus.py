@@ -1,15 +1,23 @@
 from consolemenu import *
 from consolemenu.items import *
-
+import users
 from search.search_methods import *
 
 
 def login_signup_menu():
-    pass
+    console_menu = ConsoleMenu("welcome to spotipy")
+
+    log_in = FunctionItem("log in", users.log_in)
+    sign_up = FunctionItem('sign up', users.sign_up)
+
+    console_menu.append_item(log_in)
+    console_menu.append_item(sign_up)
+
+    console_menu.show()
 
 
 def search_menu():
-    console_menu = ConsoleMenu("spotipy")
+    console_menu = ConsoleMenu("spotipy", "search")
 
     menu_item = MenuItem("search")
 
