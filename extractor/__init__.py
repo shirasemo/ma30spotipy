@@ -1,4 +1,4 @@
-from Extractor.ExtractSongs import *
+from extractor.extract_songs import *
 
 
 def parse_files(path):

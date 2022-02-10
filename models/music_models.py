@@ -1,6 +1,4 @@
-artists = {}
-albums = {}
-tracks = {}
+from config import configuration
 
 
 class Artist:
@@ -13,7 +11,7 @@ class Artist:
         self.albums_id.append(id)
 
     def save_to_dict(self):
-        artists.update({self.id: self})
+        configuration.artists.update({self.id: self})
 
     def __str__(self):
         return f'id: {self.id}, name: {self.name}, albums: {self.albums_id}'
@@ -33,7 +31,7 @@ class Album:
         self.tracks_ids.append(track_id)
 
     def save_to_dict(self):
-        albums.update({self.id: self})
+        configuration.albums.update({self.id: self})
 
     def __str__(self):
         return f'id: {self.id}, name: {self.name}, tracks: {self.tracks_ids}, artists: {self.artists_id}'
@@ -54,7 +52,7 @@ class Track:
         self.album_id.append(album_id)
 
     def save_to_dict(self):
-        tracks.update({self.id: self})
+        configuration.tracks.update({self.id: self})
 
     def __str__(self):
         return f'id: {self.id}, name: {self.name}, album: {self.album_id}, artists: {self.artists_ids},' \

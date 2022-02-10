@@ -1,7 +1,8 @@
 import json
 from zipfile import ZipFile
-import Models
-import Exceptions
+import models
+import exceptions
+from config import configuration
 
 
 def read_files_from_zip(path):
@@ -19,18 +20,18 @@ def parse_track(track: {}):
     id = track.get('id')
     name = track.get('name')
     popularity = track.get('popularity')
-    if Models.tracks.get(id) is None:
-        return Models.Track(id, name, popularity)
+    if configuration.tracks.get(id) is None:
+        return models.Track(id, name, popularity)
     else:
-        raise Exceptions.TrackAlreadyExists
+        raise exceptions.TrackAlreadyExists
 
 
 def parse_album(album: {}):
     id = album.get('id')
     name = album.get('name')
-    pos = Models.albums.get(id)
-    if Models.albums.get(id) is None:
-        return Models.Album(id, name)
+    pos = configuration.albums.get(id)
+    if configuration.albums.get(id) is None:
+        return models.Album(id, name)
     else:
         return pos
 
@@ -38,8 +39,8 @@ def parse_album(album: {}):
 def parse_artist(artist: {}):
     id = artist.get('id')
     name = artist.get('name')
-    pos = Models.artists.get(id)
+    pos = configuration.artists.get(id)
     if pos is None:
-        return Models.Artist(id, name)
+        return models.Artist(id, name)
     else:
         return pos
