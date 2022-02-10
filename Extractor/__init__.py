@@ -1,5 +1,4 @@
-import Models
-from ExtractSongs import read_files_from_zip, parse_track, parse_album, parse_artist
+from Extractor.ExtractSongs import *
 
 
 def parse_files(path):
@@ -8,7 +7,7 @@ def parse_files(path):
         item = item.get('track')
         track = parse_track(item)
         album = parse_album(item.get('album'))
-        album.add_song(track.id)
+        album.add_track(track.id)
         track.add_album(album.id)
         artists = item.get('artists')
         for artist in artists:
@@ -19,12 +18,3 @@ def parse_files(path):
             artist.save_to_dict()
         track.save_to_dict()
         album.save_to_dict()
-
-
-def main():
-    parse_files(r"C:\Users\shira\Downloads\drive-download-20220209T075512Z-001.zip")
-    print(Models.albums.get('3y7Mwv7UqhABQqsGlzSL6n'))
-
-
-if __name__ == "__main__":
-    main()
