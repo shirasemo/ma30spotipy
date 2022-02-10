@@ -23,20 +23,20 @@ class Album:
     def __init__(self, id, name):
         self.id = id
         self.name = name
-        self.songs_ids = []
+        self.tracks_ids = []
         self.artists_id = []
 
     def add_artist(self, artist_id):
         self.artists_id.append(artist_id)
 
-    def add_song(self, song_id):
-        self.songs_ids.append(song_id)
+    def add_track(self, track_id):
+        self.tracks_ids.append(track_id)
 
     def save_to_dict(self):
         albums.update({self.id: self})
 
     def __str__(self):
-        return f'id: {self.id}, name: {self.name}, songs: {self.songs_ids}, artists: {self.artists_id}'
+        return f'id: {self.id}, name: {self.name}, tracks: {self.tracks_ids}, artists: {self.artists_id}'
 
 
 class Track:
@@ -59,13 +59,3 @@ class Track:
     def __str__(self):
         return f'id: {self.id}, name: {self.name}, album: {self.album_id}, artists: {self.artists_ids},' \
                f' popularity: {self.popularity}'
-
-
-class User:
-    def __init__(self, name, type, playlists=None):
-        self.name = name
-        self.type = type
-        if playlists is None:
-            self.playlists = {}
-        else:
-            self.playlists = playlists
