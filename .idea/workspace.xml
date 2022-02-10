@@ -151,10 +151,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.__init__" />
       <item itemvalue="Python.Configuration" />
-      <item itemvalue="Python.run" />
+      <item itemvalue="Python.__init__" />
       <item itemvalue="Python.configuration" />
+      <item itemvalue="Python.run" />
       <item itemvalue="Python.search_methods" />
     </list>
     <recent_temporary>
