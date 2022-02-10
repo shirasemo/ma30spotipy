@@ -1,7 +1,7 @@
 import functools
 
 from exceptions import *
-from config import configuration
+from resources.config import configuration
 
 
 def limit_search_results(func):

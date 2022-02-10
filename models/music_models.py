@@ -1,7 +1,7 @@
 import logging
-from config import configuration
+from resources.config import configuration
 
-logging.basicConfig(filename=configuration.logs_file_path, filemode='w', format='%(name)s, %(levelname)s, %(message)s',
+logging.basicConfig(filename=configuration.logs_file_path, filemode='a', format='%(name)s, %(levelname)s, %(message)s',
                     datefmt='%Y:%m:%d %H:%M:%S')
 
 

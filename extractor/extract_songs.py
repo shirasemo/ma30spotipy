@@ -2,7 +2,7 @@ import json
 from zipfile import ZipFile
 from models import music_models
 import exceptions
-from config import configuration
+from resources.config import configuration
 
 
 def read_files_from_zip(path):
