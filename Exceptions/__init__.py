@@ -12,3 +12,7 @@ class ArtistNotFound(Exception):
 
 class AlbumNotFound(Exception):
     pass
+
+
+class NotAPremiumUser(Exception):
+    pass
