@@ -15,6 +15,3 @@ def parse_files(path):
             track.add_artist(artist.id)
             album.add_artist(artist.id)
             artist.add_album(album.id)
-            artist.save_to_dict()
-        track.save_to_dict()
-        album.save_to_dict()

@@ -1,4 +1,8 @@
+import logging
 from config import configuration
+
+logging.basicConfig(filename=configuration.logs_file_path, filemode='w', format='%(name)s, %(levelname)s, %(message)s',
+                    datefmt='%Y:%m:%d %H:%M:%S')
 
 
 class Artist:
@@ -6,11 +10,11 @@ class Artist:
         self.id = id
         self.name = name
         self.albums_id = []
+        configuration.artists.update({self.id: self})
+        logging.debug('new artist was added')
 
     def add_album(self, id):
         self.albums_id.append(id)
-
-    def save_to_dict(self):
         configuration.artists.update({self.id: self})
 
     def __str__(self):
@@ -23,14 +27,14 @@ class Album:
         self.name = name
         self.tracks_ids = []
         self.artists_id = []
+        configuration.albums.update({self.id: self})
+        logging.debug('new album was added')
 
     def add_artist(self, artist_id):
         self.artists_id.append(artist_id)
 
     def add_track(self, track_id):
         self.tracks_ids.append(track_id)
-
-    def save_to_dict(self):
         configuration.albums.update({self.id: self})
 
     def __str__(self):
@@ -44,15 +48,14 @@ class Track:
         self.popularity = popularity
         self.album_id = []
         self.artists_ids = []
+        configuration.tracks.update({self.id: self})
+        logging.debug('new track was added')
 
     def add_artist(self, artist_id):
         self.artists_ids.append(artist_id)
 
     def add_album(self, album_id):
         self.album_id.append(album_id)
-
-    def save_to_dict(self):
-        configuration.tracks.update({self.id: self})
 
     def __str__(self):
         return f'id: {self.id}, name: {self.name}, album: {self.album_id}, artists: {self.artists_ids},' \

@@ -1,5 +1,9 @@
+import logging
 from exceptions import *
 from config import configuration
+
+logging.basicConfig(filename=configuration.logs_file_path, filemode='w', format='%(name)s, %(levelname)s, %(message)s',
+                    datefmt='%Y:%m:%d %H:%M:%S')
 
 
 class User:
@@ -9,6 +13,7 @@ class User:
         self.type = type
         self.playlists = {}
         configuration.users.update({username: self})
+        logging.debug('new user was created')
 
     def create_playlist(self, name):
         if self.type == 'Free' and len(self.playlists) <= configuration.limit_free_user_playlists:
@@ -19,6 +24,7 @@ class User:
                 raise PlaylistAlreadyExists
         else:
             raise NotAPremiumUser
+        logging.debug(f'{self.username} created a playlist')
 
     def add_track(self, playlist_name, track):
         user = configuration.users.get(self.username)
