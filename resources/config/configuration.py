@@ -1,6 +1,5 @@
 import json
 
-
 data = {}
 tracks_metadata_path = r"C:\Users\shira\Downloads\drive-download-20220209T075512Z-001.zip"
 logs_file_path = r'C:\Users\shira\Code\spotipy\resources\logs\logs.json'
@@ -15,11 +14,10 @@ def read_configuration():
     with open(config_file_path, 'r') as config_json:
         text = json.dumps(config_json.read())
         data = json.loads(json.loads(text))
-        for item in data:
-            artists = data[0]
-            albums = data[1]
-            tracks = data[2]
-          #  users = data.get('users')
+        artists = data[0]
+        albums = data[1]
+        tracks = data[2]
+        #users = data[3]
     config_json.close()
 
 
